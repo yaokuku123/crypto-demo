@@ -44,15 +44,15 @@ public class RSAUtils {
     }
 
     /**
-     * 私钥加密
+     * 公钥加密
      * @param input 明文
      * @return 密文
      */
-    public static String encryptByPrivateKey(String input) {
+    public static String encryptByPublicKey(String input) {
         try {
-            PrivateKey privateKey = getPrivateKey();
+            PublicKey publicKey = getPublicKey();
             Cipher cipher = Cipher.getInstance("RSA");
-            cipher.init(Cipher.ENCRYPT_MODE,privateKey);
+            cipher.init(Cipher.ENCRYPT_MODE,publicKey);
             byte[] encryptCode = cipher.doFinal(input.getBytes());
             return Base64.encode(encryptCode);
         } catch (Exception e) {
@@ -62,15 +62,15 @@ public class RSAUtils {
     }
 
     /**
-     * 公钥解密
+     * 私钥解密
      * @param encryptCode 密文
      * @return 明文
      */
-    public static String decryptByPublicKey(String encryptCode){
+    public static String decryptByPrivateKey(String encryptCode){
         try {
-            PublicKey publicKey = getPublicKey();
+            PrivateKey privateKey = getPrivateKey();
             Cipher cipher = Cipher.getInstance("RSA");
-            cipher.init(Cipher.DECRYPT_MODE,publicKey);
+            cipher.init(Cipher.DECRYPT_MODE,privateKey);
             byte[] decryptCode = cipher.doFinal(Base64.decode(encryptCode));
             return new String(decryptCode);
         }catch (Exception e){

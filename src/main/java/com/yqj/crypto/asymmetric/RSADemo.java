@@ -19,10 +19,10 @@ public class RSADemo {
         //生成密钥对
         KeyPair keyPair = RSAUtils.generateKeyPair();
         //私钥加密
-        String encryptCode = RSAUtils.encryptByPrivateKey(input);
+        String encryptCode = RSAUtils.encryptByPublicKey(input);
         System.out.println(encryptCode);
         //公钥解密
-        String decryptCode = RSAUtils.decryptByPublicKey(encryptCode);
+        String decryptCode = RSAUtils.decryptByPrivateKey(encryptCode);
         System.out.println(decryptCode);
     }
 }
