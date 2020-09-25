@@ -112,4 +112,40 @@ public class RSAUtils {
             return null;
         }
     }
+
+    /**
+     * 生成签名
+     * @param input 明文
+     * @return 签名
+     */
+    public static String generateSign(String input){
+        try {
+            Signature signature = Signature.getInstance("sha256withrsa");
+            signature.initSign(getPrivateKey());
+            signature.update(input.getBytes());
+            byte[] sign = signature.sign();
+            return Base64.encode(sign);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 校验签名
+     * @param input 明文
+     * @param sign 签名
+     * @return 校验结果
+     */
+    public static boolean validSign(String input,String sign){
+        try {
+            Signature signature = Signature.getInstance("sha256withrsa");
+            signature.initVerify(getPublicKey());
+            signature.update(input.getBytes());
+            return signature.verify(Base64.decode(sign));
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
