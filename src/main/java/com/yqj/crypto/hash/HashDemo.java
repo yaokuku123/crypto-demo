@@ -14,19 +14,20 @@ public class HashDemo {
     //哈希算法测试字符串
     @Test
     public void testHashByStr(){
-        String input = "你好";
-        System.out.println(HashUtils.getHashByStr(input,"MD5"));
-        System.out.println(HashUtils.getHashByStr(input,"SHA-1"));
-        System.out.println(HashUtils.getHashByStr(input,"SHA-256"));
-        System.out.println(HashUtils.getHashByStr(input,"SHA-512"));
+        String input = "Hello World";
+        System.out.println("MD5:" + HashUtils.getHashByStr(input,"MD5"));
+        System.out.println("SHA-1:" + HashUtils.getHashByStr(input,"SHA-1"));
+        System.out.println("SHA-256:" + HashUtils.getHashByStr(input,"SHA-256"));
+        System.out.println("SHA-512:" + HashUtils.getHashByStr(input,"SHA-512"));
     }
 
     //哈希算法测试输入文件
     @Test
     public void testHashByFile(){
         String fileName = ".\\hello.txt";
-        System.out.println(HashUtils.getHashByFile(fileName,"MD5"));
+        System.out.println("MD5:" + HashUtils.getHashByFile(fileName,"MD5"));
+        System.out.println("SHA-1:" + HashUtils.getHashByFile(fileName,"SHA-1"));
+        System.out.println("SHA-256:" + HashUtils.getHashByFile(fileName,"SHA-256"));
+        System.out.println("SHA-512:" + HashUtils.getHashByFile(fileName,"SHA-512"));
     }
-
-
 }
