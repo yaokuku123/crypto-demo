@@ -1,11 +1,7 @@
 package com.yqj.crypto.hash;
 
-import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 /**
  * Copyright(C),2019-2020,XXX公司
